@@ -2,9 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const x = 1;
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.text}>Hello World! This is a test of the thingy</Text>
+      <Text style={styles.text}>I will now test multiple lines of this thing.</Text>
+      <Text style={styles.text}>This is the third line.</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +16,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+  text: {
+    color: "#fff"
+  }
 });
