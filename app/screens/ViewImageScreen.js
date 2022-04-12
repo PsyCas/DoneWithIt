@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, Button, Alert } from 'react-native';
 
 import colors from '../config/colors';
 
@@ -7,10 +7,20 @@ const chairImage = require('../assets/chair.jpg');
 
 
 function ViewImageScreen(props) {
+
+  const alertFunction = () => {
+    Alert.alert("Hey Dummy Look Here", "Is this a test?", [
+      {text: "Yes", onPress: ()=>{alert("Nice test mate")}},
+      {text: "No", onPress: ()=>{alert("Huh... then what is it?")}}
+    ]);
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.closeIcon}/>
-      <View style={styles.deleteIcon}/>
+      <View style={styles.buttonContainer}>
+        <Button title="Click Me First" onPress={alertFunction} color={colors.primary}/>
+        <Button title="Click Me After" onPress={alertFunction} color={colors.secondary}/>
+      </View>
       <Image
         resizeMode='contain'
         source={chairImage}
@@ -21,6 +31,11 @@ function ViewImageScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  buttonContainer:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 25
+  },  
   chairImage: {
     width: "100%",
     height: "100%",
